@@ -19,12 +19,14 @@ for products in shop:
 print('Имеюшийся товар в магазите')
 print(x)
 name = input('Введите название товара который хотите приобрести >>> ')
-for i in shop:
-    if name in i['product']:
-        cash = int(input('Вы можете купить этот товар. Введите ссумму для покупки >>> '))
-        if i['price'] <= cash:
-            print('Получите свой товар, сдача равна', cash - i['price'])
-        else:
-            print('У вас недостаточно средств для покупки товара.')
-
-    
+if name not in [x['product'] for x in shop]:
+    print('error')
+else:
+    for i in shop:
+        if name == i['product']:
+            cash = int(input('Вы можете купить этот товар. Введите ссумму для покупки >>> '))
+            if i['price'] <= cash:
+                print('Получите свой товар, сдача равна', cash - i['price'])
+            else:
+                print('У вас недостаточно средств для покупки товара.')
+                
