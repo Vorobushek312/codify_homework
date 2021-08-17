@@ -15,5 +15,5 @@ answer_4 = lambda last_index: last_index[-1]
 print(answer_4(my_list), answer_4(my_tuple))
 # 5. Дан список: [1,2,3,4,5,6,834,123, 99,32, 644 ] с помощью спискового включения - сформируйте новый список только из чётных элементов.
 my_list = [1,2,3,4,5,6,834,123, 99,32, 644 ]
-new_list = [x for x in my_list[:4]]
+new_list = [x for x in my_list if x % 2 == 0]
 print(new_list)
