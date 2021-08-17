@@ -1,9 +1,9 @@
 products = (
-    {'id': 1, 'name':'баранина 1кг', 'price':320},
-    {'id': 2, 'name':'говядина 1кг', 'price':420},
-    {'id': 3, 'name':'конина 1кг', 'price':520},
-    {'id': 4, 'name':'фарш 1кг', 'price':220},
-    {'id': 5, 'name':'свинина 1кг', 'price':520},
+    {'id':1, 'name':'Молоко 3.5%', 'price':43},
+    {'id':2, 'name':'Сыр 72%', 'price':400},
+    {'id':3, 'name':'Творог 10%', 'price':70},
+    {'id':4, 'name':'Йогурт 5.5 %', 'price':35},
+    {'id':5, 'name':'Кефир 7.5 %', 'price':45},
 )
 products_indexes = tuple((x['id']for x in products))
 def main(user_money = 0):

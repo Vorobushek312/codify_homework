@@ -19,8 +19,9 @@
 # # - milk_meat.py # мясо и молочная продукция
 # # - baking.py # хлеб и выпечка
 # # - cleaning_materials.py # мыломоющие
-
 from meat import main as meat_main
+from soap_detergent import main as soap_detergent_main
+from milk import main as milk_main
 def enter_shop():
     print('Добро пожаловать в супермаркет Бишкек')
     enter = 0
@@ -42,7 +43,7 @@ def main():
     while value != 3:
         print("""Опции пользования магазином.
 1. Посмотреть список отделов
-2. Перейти в раздел.
+2. Перейти в отдел.
 3. Выйти из преложения""")
         try:
             options = int(input())
@@ -55,27 +56,41 @@ def main():
         else:
             if options == 1:
                 print("""
-1. Хлеб
-2. Мясо
+Нумерация отделов
+1. Мясо
+2. Молоко
 3. Мыломоющее
                 """)
             elif options == 2:
-                try:
-                    department = int(input('Укажите номер отдела.'))
-                    if department not in [1, 2, 3]:
-                        raise Exception('Токой опции не существует!')
-                except ValueError:
-                    print('Вы должны выбрать номер раздела!')
-                except Exception as s:
-                    print(s)
-                else:
-                    if department == 1:
-                        cash = meat.main(cash)
-                    elif department == 2:
-                        return '2'
-                    elif department == 3:
-                        return '3'
-            elif options == 3:
+                while True:
+                    try:
+                        department = int(input('Укажите номер отдела.'))
+                        if department not in [1, 2, 3]:
+                            raise Exception('Токой опции не существует!')
+                    except ValueError:
+                        print('Вы должны выбрать номер раздела!')
+                    except Exception as s:
+                        print(s)
+                    else:
+                        break
+                if department == 1:
+                    products = meat_main(money)
+                elif department == 2:
+                    products = soap_detergent_main(money)
+                elif department == 3:
+                    products = milk_main(money)
+                money = calc_user_products(products, money)
+            if options == 3:
                 exit()
-            
-print(main())
+
+    
+def calc_user_products(products, money):
+    full_price = 0
+    if products != None:
+        for item in products:
+            full_price += item['count'] * item['product']['price']
+    money -= full_price
+    print(f'Общая стоимость: {full_price} Ваша сдача {money}.')
+    return money
+
+main()
