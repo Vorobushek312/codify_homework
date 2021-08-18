@@ -3,6 +3,7 @@
 # Сделать возможность запускать модули самостоятельно и выполнять приведённый в них функционал, с помощью конструкции: 
 # if __name__ == '__main__':
 #       pass # ваш код
+from division import get_number 
 from summa import main as summ
 from subtraction import main as subtr
 from multiplication import main as multi
@@ -14,14 +15,7 @@ def main():
     print("Для выхода напишите stop")
     i = input()
     while i != 'stop':
-        while True:
-            var = input("Введите первое число: ")
-            try:
-                var_1 = float(var)
-            except ValueError:
-                print('"' + var + '" - не являеться числом!')
-            else:
-                break
+        var_1 = get_number()
         print("""Введите + для сложения
 Введите - для вычетания
 Введите * для умножения
@@ -33,14 +27,7 @@ def main():
                 break
             else:
                 print('"' + operation + '" - не являеться операцией!')
-        while True:
-            var = input("Введите второе число: ")
-            try:
-                var_2 = float(var)
-            except ValueError:
-                print('"' + var + '" - не являеться числом!')
-            else:
-                break
+        var_2 = get_number()
         if operation == '+':
             summ(var_1, var_2)
         elif operation == '-':

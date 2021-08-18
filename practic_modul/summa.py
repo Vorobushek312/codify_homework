@@ -1,3 +1,4 @@
+from division import get_number 
 def main(var_1, var_2):
     answer = var_1 + var_2
     print ("Сумма чисел ", var_1, '+', var_2, ' = ', answer)
@@ -5,20 +6,6 @@ def main(var_1, var_2):
 
 
 if __name__ == '__main__':
-    while True:
-        var = input("Введите первое число: ")
-        try:
-            var_1 = float(var)
-        except ValueError:
-            print('"' + var + '" - не являеться числом!')
-        else:
-            break
-    while True:
-        var = input("Введите второе число: ")
-        try:
-            var_2 = float(var)
-        except ValueError:
-            print('"' + var + '" - не являеться числом!')
-        else:
-            break
+    var_1 = get_number()
+    var_2 = get_number()
     main(var_1, var_2)

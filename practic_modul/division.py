@@ -5,23 +5,17 @@ def main(var_1, var_2):
     else:
         print('На 0 делить нельзя')
 
-
-
-if __name__ == '__main__':
+def get_number():
     while True:
-        var = input("Введите первое число: ")
+        var = input("Введите число: ")
         try:
             var_1 = float(var)
         except ValueError:
             print('"' + var + '" - не являеться числом!')
         else:
-            break
-    while True:
-        var = input("Введите второе число: ")
-        try:
-            var_2 = float(var)
-        except ValueError:
-            print('"' + var + '" - не являеться числом!')
-        else:
-            break
+            return var_1
+
+if __name__ == '__main__':
+    var_1 = get_number()
+    var_2 = get_number()
     main(var_1, var_2)
