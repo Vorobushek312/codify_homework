@@ -1,7 +1,7 @@
 from division import get_number 
 def main(var_1, var_2):
     answer = var_1 - var_2
-    print ("Сумма чисел ", var_1, '-', var_2, ' = ', answer)
+    return answer
 
 
 

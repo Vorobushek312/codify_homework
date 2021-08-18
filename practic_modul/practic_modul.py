@@ -29,15 +29,20 @@ def main():
                 print('"' + operation + '" - не являеться операцией!')
         var_2 = get_number()
         if operation == '+':
-            summ(var_1, var_2)
+            answer = summ(var_1, var_2)
+            print('Сумма чисел равна', answer)
         elif operation == '-':
-            subtr(var_1, var_2)
+            answer = subtr(var_1, var_2)
+            print('Разность чисел равна', answer)
         elif operation == '*':
-            multi(var_1, var_2)
+            answer = multi(var_1, var_2)
+            print('Произведение чисел равна', answer)
         elif operation == '/':
-            divisions(var_1, var_2)
+            answer = divisions(var_1, var_2)
+            print('Деление чисел равна', answer)
         elif operation == '**':
-            expo(var_1, var_2)
+            answer = expo(var_1, var_2)
+            print('возведение в степень чисел равна', answer)
         print("Если вы хотите продолжить напишите любое слово.")
         print("Для выхода напишите stop")
         i = input()
