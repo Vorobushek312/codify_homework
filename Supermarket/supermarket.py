@@ -24,8 +24,7 @@ from soap_detergent import main as soap_detergent_main
 from milk import main as milk_main
 def enter_shop():
     print('Добро пожаловать в супермаркет Бишкек')
-    enter = 0
-    while enter != 1:
+    while True:
         try:
             cash = float(input('Введите количество денег которое у вас есть.'))
             if cash <= 0:
@@ -35,8 +34,7 @@ def enter_shop():
         except Exception as s:
             print(s)
         else:
-            enter = 1
-    return cash
+            return cash   
 def main():
     money = enter_shop()
     value = None
@@ -58,8 +56,8 @@ def main():
                 print("""
 Нумерация отделов
 1. Мясо
-2. Молоко
-3. Мыломоющее
+2. Мыломоющее
+3. Молоко
                 """)
             elif options == 2:
                 while True:
