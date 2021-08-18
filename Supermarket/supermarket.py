@@ -19,76 +19,27 @@
 # # - milk_meat.py # мясо и молочная продукция
 # # - baking.py # хлеб и выпечка
 # # - cleaning_materials.py # мыломоющие
-from meat import main as meat_main
-from soap_detergent import main as soap_detergent_main
-from milk import main as milk_main
-def enter_shop():
-    print('Добро пожаловать в супермаркет Бишкек')
-    while True:
-        try:
-            cash = float(input('Введите количество денег которое у вас есть.'))
-            if cash <= 0:
-                raise Exception('Сумма денег должна быть положительная!')
-        except ValueError:
-            print('Вы ввели не число. Введите число!')
-        except Exception as s:
-            print(s)
-        else:
-            return cash   
+import setting
+from meat import main as meat_main # Импортируем отдел мяса
+from soap_detergent import main as soap_detergent_main # Импортируем отдел мыломойки
+from milk import main as milk_main # Импортируем отдел молока  
 def main():
-    money = enter_shop()
-    value = None
-    while value != 3:
-        print("""Опции пользования магазином.
-1. Посмотреть список отделов
-2. Перейти в отдел.
-3. Выйти из преложения""")
-        try:
-            options = int(input())
-            if options not in [1, 2, 3]:
-                raise Exception('Токой опции не существует!')
-        except ValueError:
-            print('Вы должны выбрать номер раздела!')
-        except Exception as s:
-            print(s)
-        else:
-            if options == 1:
-                print("""
-Нумерация отделов
-1. Мясо
-2. Мыломоющее
-3. Молоко
-                """)
-            elif options == 2:
-                while True:
-                    try:
-                        department = int(input('Укажите номер отдела.'))
-                        if department not in [1, 2, 3]:
-                            raise Exception('Токой опции не существует!')
-                    except ValueError:
-                        print('Вы должны выбрать номер раздела!')
-                    except Exception as s:
-                        print(s)
-                    else:
-                        break
-                if department == 1:
-                    products = meat_main(money)
-                elif department == 2:
-                    products = soap_detergent_main(money)
-                elif department == 3:
-                    products = milk_main(money)
-                money = calc_user_products(products, money)
-            if options == 3:
-                exit()
-
-    
-def calc_user_products(products, money):
-    full_price = 0
-    if products != None:
-        for item in products:
-            full_price += item['count'] * item['product']['price']
-    money -= full_price
-    print(f'Общая стоимость: {full_price} Ваша сдача {money}.')
-    return money
-
-main()
+    money = setting.enter_shop()
+    while True:
+        print(setting.title_show())
+        options = setting.chec_option()
+        if options == 1:
+            print(setting.department_show())
+        elif options == 2:
+            department = setting.chec_inter_departmen()
+            if department == 1:
+                products = meat_main(money)
+            elif department == 2:
+                products = soap_detergent_main(money)
+            elif department == 3:
+                products = milk_main(money)
+            money = setting.calc_user_products(products, money)
+        elif options == 3:
+            exit()
+if __name__ == '__main__':
+    main()

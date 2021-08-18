@@ -1,73 +1,66 @@
-products = (
-    {'id':1, 'name':'Молоко 3.5%', 'price':43},
-    {'id':2, 'name':'Сыр 72%', 'price':400},
-    {'id':3, 'name':'Творог 10%', 'price':70},
-    {'id':4, 'name':'Йогурт 5.5 %', 'price':35},
-    {'id':5, 'name':'Кефир 7.5 %', 'price':45},
-)
+import setting
+products = [
+    {'id':1, 'name':'молоко 3.5%', 'price':43},
+    {'id':2, 'name':'сыр 72%', 'price':400},
+    {'id':3, 'name':'творог 10%', 'price':70},
+    {'id':4, 'name':'йогурт 5.5 %', 'price':35},
+    {'id':5, 'name':'кефир 7.5 %', 'price':45},
+]
 products_indexes = tuple((x['id']for x in products))
 def main(user_money = 0):
-    print('Добро пожаловать в мясной отдел!')
+    restart = user_money
+    print('Добро пожаловать в молочеый отдел!')
     option = None
     shopping_cart = []
-    while option != 5:
-        try:
-            option = int(input('''
-            1. Посмотреть весть список товаров
-            2. Добавить товар в корзину 
-            3. Очистить корзину 
-            4. Посмотреть список продуктов в корзине
-            5. Завершить покупку и перейти на кассу 
-            Виберите опцию:'''))
-            if option not in (1,2,3,4,5):
-                raise Exception('Нет токой опции!')
-        except ValueError:
-            print('Некоретный ввод опции!')
-        except Exception as e:
-            print(e)
-        else:
-            if option == 1:
-                for product in products:
-                    print('*'*30)
-                    for parameter in product:
-                        print(parameter,':',product[parameter])
-            elif option == 2:
-                try:
-                    product_index = int(input('Введите id продукта:'))
-                    if product_index not in products_indexes:
-                        raise Exception('Такого продукта нет!')
-                except ValueError:
-                    print('Некорретный ввод!')
-                except Exception as e:
-                    print(e)
+    while option != 7:
+        option = setting.chec_inter_option(setting.table_option_show())
+        if option == 1:
+            print(setting.show_products(products))
+        elif option == 2:
+            find_full = list()
+            name_user = input('Введите товар для поиска: ')
+            for find in products:
+                if name_user.lower() in find['name']:
+                    find_full.append(find)
+            if find_full == []:
+                print('Совподений не найдено')
+            else:
+                print('Найденные товары')
+                print(setting.show_find(find_full))
+        elif option == 3:
+            product_index = setting.chek_product(products_indexes)
+            product = tuple(filter(lambda x : x['id'] == product_index,products))[0]
+            if user_money > product['price']:
+                user_money -= product['price']
+                shopping_cart_product = None
+                shopping_cart_product_index = None
+                for index, cart_product in enumerate(shopping_cart):
+                    if cart_product['product']['id'] == product_index:
+                        shopping_cart_product = cart_product
+                        shopping_cart_product_index = index
+                if not shopping_cart_product:
+                    shopping_cart.append({'count':1,'product': product})
                 else:
-                    product = tuple(filter(lambda x : x['id'] == product_index,products))[0]
-                    if user_money > product['price']:
-                        user_money -= product['price']
-                        shopping_cart_product = None
-                        shopping_cart_product_index = None
-                        for index, cart_product in enumerate(shopping_cart):
-                            if cart_product['product']['id'] == product_index:
-                                shopping_cart_product = cart_product
-                                shopping_cart_product_index = index
-                        if not shopping_cart_product:
-                            shopping_cart.append({'count':1,'product': product})
-                        else:
-                            shopping_cart_product['count'] = shopping_cart_product['count'] + 1 
-                            shopping_cart[shopping_cart_product_index] = shopping_cart_product
-                    else:
-                        print('Не достаточно денег для покупки!')
-            elif option == 3:
-                shopping_cart = []
-                print('Корзина очищена!')
-            elif option == 4:
-                if len(shopping_cart) > 0:
-                    for item_to_buy in shopping_cart:
-                        print('*'*30)
-                        for product in item_to_buy:
-                            print(item_to_buy[product])
-                else:
-                    print('Корзина пуста!')               
+                    shopping_cart_product['count'] = shopping_cart_product['count'] + 1 
+                    shopping_cart[shopping_cart_product_index] = shopping_cart_product
+            else:
+                print('Не достаточно денег для покупки!')
+        elif option == 4:
+            user_money = restart
+            shopping_cart = []
+            print('Корзина очищена!')
+        elif option == 5:
+            if len(shopping_cart) > 0:
+                print(setting.show_bags(shopping_cart))
+            else:
+                print('Корзина пуста!')
+        elif option == 6:
+            index = 0
+            del_prod = setting.chek_product(products_indexes)
+            for have_product in shopping_cart:
+                if del_prod == have_product['product']['id']:
+                    del shopping_cart[index]
+                index += 1               
     if len(shopping_cart) > 0:
         return shopping_cart
     else:
