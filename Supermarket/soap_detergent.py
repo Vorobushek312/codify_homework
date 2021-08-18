@@ -1,22 +1,33 @@
 import setting
 products = (
-    {'id':1, 'name':'Фери 1л', 'price':70},
-    {'id':2, 'name':'Туалетная бумага', 'price':15},
-    {'id':3, 'name':'Зубная паста', 'price':125},
-    {'id':4, 'name':'Шампунь', 'price':130},
-    {'id':5, 'name':'Мыло душистое', 'price':30},
+    {'id':1, 'name':'фери 1л', 'price':70},
+    {'id':2, 'name':'туалетная бумага', 'price':15},
+    {'id':3, 'name':'зубная паста', 'price':125},
+    {'id':4, 'name':'шампунь', 'price':130},
+    {'id':5, 'name':'мыло душистое', 'price':30},
 )
 products_indexes = tuple((x['id']for x in products))
 def main(user_money = 0):
     restart = user_money
-    print('Добро пожаловать в мыломоюший отдел!')
+    print('Добро пожаловать в молочеый отдел!')
     option = None
     shopping_cart = []
-    while option != 5:
+    while option != 7:
         option = setting.chec_inter_option(setting.table_option_show())
         if option == 1:
             print(setting.show_products(products))
         elif option == 2:
+            find_full = list()
+            name_user = input('Введите товар для поиска: ')
+            for find in products:
+                if name_user.lower() in find['name']:
+                    find_full.append(find)
+            if find_full == []:
+                print('Совподений не найдено')
+            else:
+                print('Найденные товары')
+                print(setting.show_find(find_full))
+        elif option == 3:
             product_index = setting.chek_product(products_indexes)
             product = tuple(filter(lambda x : x['id'] == product_index,products))[0]
             if user_money > product['price']:
@@ -34,15 +45,22 @@ def main(user_money = 0):
                     shopping_cart[shopping_cart_product_index] = shopping_cart_product
             else:
                 print('Не достаточно денег для покупки!')
-        elif option == 3:
+        elif option == 4:
             user_money = restart
             shopping_cart = []
             print('Корзина очищена!')
-        elif option == 4:
+        elif option == 5:
             if len(shopping_cart) > 0:
                 print(setting.show_bags(shopping_cart))
             else:
-                print('Корзина пуста!')               
+                print('Корзина пуста!')
+        elif option == 6:
+            index = 0
+            del_prod = setting.chek_product(products_indexes)
+            for have_product in shopping_cart:
+                if del_prod == have_product['product']['id']:
+                    del shopping_cart[index]
+                index += 1               
     if len(shopping_cart) > 0:
         return shopping_cart
     else:
