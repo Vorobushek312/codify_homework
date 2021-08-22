@@ -8,6 +8,7 @@ products = (
 )
 products_indexes = tuple((x['id']for x in products))
 def main(user_money = 0):
+    """Запускает работу отдела мясных продуктов"""
     restart = user_money
     print('Добро пожаловать в молочеый отдел!')
     option = None

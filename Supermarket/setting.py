@@ -1,7 +1,7 @@
 from prettytable import PrettyTable # Импортируем модуль для создания таблиц
-table = PrettyTable() # создаем переменную table с доступом к библиотеки 
-table.field_names = ["ID", "Название", "Цена"] # Создание названий столбцов
+
 def title_show():
+    """Создает таблицу с опциями и выводит ее в консоль"""
     title = PrettyTable()
     title.field_names = ['№', 'Название опции']
     title.add_rows(
@@ -15,6 +15,7 @@ def title_show():
 
 
 def department_show():
+    """Отоброжает имеющиеся отделы продуктов"""
     department = PrettyTable()
     department.field_names = ['№', 'Название отдела']
     department.add_rows(
@@ -28,10 +29,12 @@ def department_show():
 
 
 def enter_shop():
+    """Функция требует ввести обязательно положительное число.
+    После возврашает его"""
     print('Добро пожаловать в супермаркет Бишкек')
     while True:
         try:
-            cash = float(input('Введите количество денег которое у вас есть.'))
+            cash = float(input('Введите количество денег которое у вас есть: '))
             if cash <= 0:
                 raise Exception('Сумма денег должна быть положительная!')
         except ValueError:
@@ -43,9 +46,10 @@ def enter_shop():
 
 
 def chec_option():
+    """Возврашает номер опции, выбранную пользователем"""
     while True:
         try:
-            options = int(input("Введите номер опции."))
+            options = int(input("Введите номер опции: "))
             if options not in [1, 2, 3]:
                 raise Exception('Токой опции не существует!')
         except ValueError:
@@ -57,9 +61,10 @@ def chec_option():
 
 
 def chec_inter_departmen():
+    """Возврашает номер выброного отдела"""
     while True:
         try:
-            department = int(input('Укажите номер отдела.'))
+            department = int(input('Укажите номер отдела: '))
             if department not in [1, 2, 3]:
                 raise Exception('Токой опции не существует!')
         except ValueError:
@@ -71,6 +76,7 @@ def chec_inter_departmen():
 
 
 def calc_user_products(products, money):
+    """Производит расчет остатка денежных средств пользователя"""
     full_price = 0
     if products != None:
         for item in products:
@@ -81,6 +87,7 @@ def calc_user_products(products, money):
 
 
 def table_option_show():
+    """Выводит в таблице опции отдела"""
     table_option = PrettyTable() # создаем переменную table с доступом к библиотеки 
     table_option.field_names = ['№', 'Название опции'] # Создание названий столбцов
     table_option.add_rows(
@@ -98,6 +105,7 @@ def table_option_show():
 
 
 def chec_inter_option(table_option_show):
+    """Возврашает номер выбранной опции"""
     while True:
         try:
             print(table_option_show)
@@ -113,17 +121,19 @@ def chec_inter_option(table_option_show):
 
 
 def show_products(products):
+    """Создает тоблицу с продуктами которые можно купить"""
     x = PrettyTable()
-    x.field_names = ["№", "Название", "Цена"]
+    x.field_names = ["ID", "Название", "Цена"]
     for product in products:
         x.add_row([product['id'], product['name'], product['price']])
     return x
 
 
 def chek_product(products_indexes):
+    """Возврашает номер выбранного продукта"""
     while True:
         try:
-            product_index = int(input('Введите id продукта:'))
+            product_index = int(input('Введите id продукта: '))
             if product_index not in products_indexes:
                 raise Exception('Такого продукта нет!')
         except ValueError:
@@ -135,6 +145,7 @@ def chek_product(products_indexes):
 
 
 def show_bags(products):
+    """Создает таблицу с продуктами в корзине"""
     x = PrettyTable()
     x.field_names = ["ID", "Название", "Цена", 'Количество']
     for item_to_buy in products:
@@ -142,6 +153,7 @@ def show_bags(products):
     return x
 
 def show_find(find):
+    """Создает таблицу с найденными продуктами по поику"""
     x = PrettyTable()
     x.field_names = ["ID", "Название", "Цена"]
     for find_item in find:

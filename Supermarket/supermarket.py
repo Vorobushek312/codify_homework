@@ -1,45 +1,25 @@
-# Командная работа, супермаркет. Поставить обработчики на возможные исключения.
-# # Пользователь заходит в приложение, вводит количество его денег и выбирает одну из опций:
-# # - перейти в раздел
-# #     - мясо и молочная продукция
-# #     - хлеб и выпечка
-# #     - мыломоющие
-# #     ... остальные по желанию
-# # - выйти из приложения
-# # В каждом из разделов, в которых минимум 5 позиций продуктов, пользователь может:
-# # 1. Посмотреть весь список товаров.
-# # 2. Найти товар по имени (опционально).
-# # 3. Добавить товар в корзину (предусмотреть проверку на достаточное количество денег, добавление одного товара несколько раз должно суммировать количество). 
-# # 4. Очистить корзину.
-# # 5. Посмотреть список продуктов в корзине.
-# # 6. Удалить определенный элемент из корзины (опционально).
-# # 7. Завершить покупки и пройти на кассу, где клиенту будет производится расчёт и выдаваться сдача(если она есть).
-# # Приложение будет состоять из нескольких модулей:
-# # - main.py # касса, получение денег от пользователя
-# # - milk_meat.py # мясо и молочная продукция
-# # - baking.py # хлеб и выпечка
-# # - cleaning_materials.py # мыломоющие
-import setting
+import setting # Импортируем модуль с функциями
 from meat import main as meat_main # Импортируем отдел мяса
 from soap_detergent import main as soap_detergent_main # Импортируем отдел мыломойки
 from milk import main as milk_main # Импортируем отдел молока  
-def main():
-    money = setting.enter_shop()
-    while True:
-        print(setting.title_show())
-        options = setting.chec_option()
+def main(): 
+    money = setting.enter_shop() # Получение информации о средствах покупателя
+    while True:  
+        print(setting.title_show()) # Информируем пользователя об опциях
+        options = setting.chec_option() # Получение информации куда хочет перейти пользователь
         if options == 1:
-            print(setting.department_show())
+            print(setting.department_show()) # Информируем пользователя об опциях в отделах
         elif options == 2:
-            department = setting.chec_inter_departmen()
+            department = setting.chec_inter_departmen() # Получение информации куда хочет перейти пользователь
             if department == 1:
-                products = meat_main(money)
+                products = meat_main(money) # Начинает работать с отделом мяса
             elif department == 2:
-                products = soap_detergent_main(money)
+                products = soap_detergent_main(money) # Начинает работать с отделом мыломоющих товаров
             elif department == 3:
-                products = milk_main(money)
-            money = setting.calc_user_products(products, money)
+                products = milk_main(money) # Начинает работать с отделом молочных продуктов
+            money = setting.calc_user_products(products, money) # Расчет остатка денежных средств пользователя
         elif options == 3:
+            print(f'Пока. Заберите остаток {money}!')
             exit()
 if __name__ == '__main__':
     main()
