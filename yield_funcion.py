@@ -1,12 +1,18 @@
 #Voronov Andrei
 import utilic
-import sys
 
 
 def my_range(start , stop):
     while start != stop:
         yield start
         start += 1
+
+def multi_table(value):
+    arg = 1
+    while arg != 11:
+        answer = value * arg
+        yield answer
+        arg += 1
 
 
 def my_enumerate(values, start = 0):
@@ -28,9 +34,10 @@ say = """Домашнее задание.
 1. Реализовать функцию range с помощью генератора.
 2. Реализовать функцию enumerate с помощью генератора.
 3. Реализовать функцию map с помощью генератора.
-4. Для выхода: """
+4. Реализация таблицы умножения.
+5. Для выхода: """
 while True:
-    option = utilic.chek_int_input(say, [1,2,3,4])
+    option = utilic.chek_int_input(say, [1,2,3,4,5])
     if option == 1:
         print('Реализаци моего варианта range')
         start = utilic.chek_int_input_not_range('Ввндите начально число: ')
@@ -46,31 +53,12 @@ while True:
         value = input('Введите слово с збуквами верхнего региста и я выведу все в нижнем регисте')
         print(list(my_map(str_lower, value)))
     elif option == 4:
+        print('Таблица умножения.')
+        value = utilic.chek_int_input_not_range('Ввндите число: ')
+        print(list(multi_table(value)))
+    elif option == 5:
         print('Спасибо за проверку')
         exit()
 # 2. Реализовать функцию enumerate с помощью генератора.
 # 3. Реализовать функцию map с помощью генератора.
 
-
-
-
-
-
-
-
-
-value = 'abc'
-my_list = ['A', 'B', 'C', 'd']
-
-# print(list(my_range(1, 10)))
-# print(list(range(1, 10)))
-# print(list(my_enumerate(value)))
-# print(list(enumerate(value)))
-# print(list(map(multi, my_list)))
-# print(list(my_map(multi, my_list)))
-# print(sys.getsizeof(list(my_range(1, 10))))
-# print(sys.getsizeof(list(range(1, 10))))
-# print(sys.getsizeof(list(my_enumerate(value))))
-# print(sys.getsizeof(list(enumerate(value))))
-# print(sys.getsizeof(list(map(multi, my_list))))
-# print(sys.getsizeof(list(my_map(multi, my_list))))
