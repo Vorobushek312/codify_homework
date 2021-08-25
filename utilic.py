@@ -22,3 +22,16 @@ def chek_int_input_not_range(say):
             print(s)
         else:
             return int_input
+
+
+def chek_name_file():
+    while True:
+        try:
+            filename = input('Введите назывние фаила.: ')
+            filename += '.txt'
+            file = open(filename)
+            file.close()
+        except FileNotFoundError:
+            print('Фаил не найден')
+        else:
+            return filename
