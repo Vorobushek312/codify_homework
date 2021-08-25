@@ -27,9 +27,12 @@ while True:
             for line in file:
                 if find_text in line:
                     find_list.append(line)
+        print(find_list)
         if find_list != []:
             for line in find_list:
                 print(line, end='')
+        else:
+            print('')
     elif option == 3:
         filename = utilic.chek_name_file()
         add_text = input("Введите текст: ")
