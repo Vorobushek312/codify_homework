@@ -3,8 +3,6 @@
 # 2. Расширьте возможность программы (1) добавив поиск по ФИО, телефону.
 # 3. Расширьте возможность программы (1) и (2) добавив удаление данных по ФИО, телефону.
 import csv
-import os
-import sys
 import utilic
 say = """
 1. Добавить информацию о человеке.
@@ -20,8 +18,8 @@ while True:
     if operation == 1:
         name = input('Введите имя пользователя: ')
         surname = input('Введите фамилию пользователя: ')
-        age = utilic.chek_int_input_not_range("Введите возраст: ")
-        info_dict = {'name': name.title(), 'surname': surname.title(), 'age': age}
+        phone = utilic.chek_int_input_not_range("Введите телефон: ")
+        info_dict = {'name': name.title(), 'surname': surname.title(), 'phone': phone}
         info_database.append(info_dict)
         with open(fail_name, 'a') as file:
             writer = csv.DictWriter(file, info_database[0].keys())
@@ -41,8 +39,8 @@ while True:
         delete_list.append(delete_name.title())
         delete_surname = input('Введите фамилию: ')
         delete_list.append(delete_surname.title())
-        delete_age = input('Введите возраст: ')
-        delete_list.append(delete_age)
+        delete_phone = input('Введите телефон: ')
+        delete_list.append(delete_phone)
         with open(fail_name, 'r') as readFile:
             reader = csv.reader(readFile)
             for row in reader:
