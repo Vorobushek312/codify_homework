@@ -1,3 +1,4 @@
+import csv
 def chek_int_input(say, range_list):
     while True:
         try:
@@ -55,6 +56,8 @@ def chek_name_file_csv():
                 else:
                     if action == 'Да':
                         file = open(filename, 'w')
+                        writer = csv.DictWriter(file, info_database[0].keys())
+                        writer.header()
                         file.close()
                         return filename
                     elif action == 'Нет':

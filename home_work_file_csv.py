@@ -13,6 +13,7 @@ say = """
 print('Программа работы с информацией в фаилах.')
 info_database = []
 fail_name = utilic.chek_name_file_csv()
+fieldnames = ['Имя', 'Фамилия', 'Телефон']
 while True:
     operation = utilic.chek_int_input(say, [1, 2, 3, 4, 5])
     if operation == 1:
