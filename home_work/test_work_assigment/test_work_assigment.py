@@ -32,8 +32,8 @@ for text in files_array:
     img = Image.open(LOAD_PATH + text)
     width, height = img.size
     draw = ImageDraw.Draw(img)
-    width_text, height_text = draw.textsize(text[0:-4])
-    draw.text(((width - width_text - 100),(height - height_text - 30)),text[0:-4], font=font)
+    width_text, height_text = draw.textsize(text[0:-4], font)
+    draw.text(((width - width_text),(height - height_text)),text[0:-4], font=font)
     img.save(BASE_SAVE_PATH  + text, 'JPEG')
     img.close()
 
