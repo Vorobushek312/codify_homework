@@ -25,35 +25,35 @@
 # Создайте список из классов песней и передайте в класс Songs.
 # Внутри класса Playlist создайте метод sing_me_a_song(song_name), который находит песню по её названию и выводит
 # каждый элемент текста песни в отдельной строке. Обработайте возможные ошибки.
-# class Playlist:
-#     def __init__(self, song_list) -> None:
-#         self.song_list = song_list
-#     def sing_me_a_song(self):
-#         name = input('Введите название исполнителя: ')
-#         for text in self.song_list:
-#             if name in text[0]:
-#                 print(text[1])
-# class Song:
-#     def __init__(self, name, lyric) -> None:
-#         self.name = name
-#         self.lyric = lyric
+class Playlist:
+    def __init__(self, song_list) -> None:
+        self.song_list = song_list
+    def sing_me_a_song(self):
+        name = input('Введите название исполнителя: ')
+        for text in self.song_list:
+            if name in text[0]:
+                print(text[1])
+class Song:
+    def __init__(self, name, lyric) -> None:
+        self.name = name
+        self.lyric = lyric
     
-# class Songs:
-#     list_songs = []
+class Songs:
+    list_songs = []
 
-# song_1 = Song('Guf', '''Ice... Ice, ice baby,
-# Я буду тебя любить, даже когда я буду на небе...
-# Ну а пока что я здесь. И я в рэпе,
-# И я тебя люблю, слышишь, ice baby...''')
-# song_2 = Song('Guf', """Ведь сегодня-завтра будет вчера, а еще вчера-сегодня было завтра
-# Тут имеет смысл подождать до утра и уж потом строить планы, что-то загадывать
-# Сегодня-завтра будет вчера, еще вчера-сегодня было завтра
-# Имеет смысл подождать до утра, и уж потом строить планы, что-то загадывать""")
-# songs = Songs()
-# songs.list_songs.append([song_1.name, song_1.lyric])
-# songs.list_songs.append([song_2.name, song_2.lyric])
-# play = Playlist(songs.list_songs)
-# play.sing_me_a_song()
+song_1 = Song('Guf', '''Ice... Ice, ice baby,
+Я буду тебя любить, даже когда я буду на небе...
+Ну а пока что я здесь. И я в рэпе,
+И я тебя люблю, слышишь, ice baby...''')
+song_2 = Song('Guf', """Ведь сегодня-завтра будет вчера, а еще вчера-сегодня было завтра
+Тут имеет смысл подождать до утра и уж потом строить планы, что-то загадывать
+Сегодня-завтра будет вчера, еще вчера-сегодня было завтра
+Имеет смысл подождать до утра, и уж потом строить планы, что-то загадывать""")
+songs = Songs()
+songs.list_songs.append([song_1.name, song_1.lyric])
+songs.list_songs.append([song_2.name, song_2.lyric])
+play = Playlist(songs.list_songs)
+play.sing_me_a_song()
 
 # 3. Игра в кости для 2ух игроков, игроки по очереди бросают кости, начинает первый игрок, 
 # пока он вводит в консоль слово: mix - кости перемешиваются(максимум 5 раз, иначе автопоражения, предупреждать об оставшемся количестве перемешиваний), 
