@@ -19,8 +19,8 @@ DROP TABLE IF EXISTS student;
 CREATE TABLE student
 (
 id serial PRIMARY KEY,
-name varchar(100) NOT NULL,
-lastname varchar(100) NOT NULL,
+first_name varchar(100) NOT NULL,
+last_name varchar(100) NOT NULL,
 middlename varchar(100),
 email varchar(50) NOT NULL,
 date_of_birth date NOT NULL
@@ -44,11 +44,13 @@ ALTER TABLE student ADD COLUMN group_student varchar(100);
 UPDATE student SET group_student = 'Python';
 ALTER TABLE student ALTER COLUMN date_regist SET NOT NULL;
 SELECT * FROM student;
+
+
 DROP TABLE IF EXISTS course;
 CREATE TABLE course
 (
 id serial PRIMARY KEY,
-name varchar(100) NOT NULL,
+course_name varchar(100) NOT NULL,
 date_start date NOT NULL,
 date_finish date NOT NULL
 );
@@ -56,11 +58,13 @@ INSERT INTO course VALUES(1, 'Python', to_date('01 Feb 2021', 'DD Mon YYYY'), to
 (2, 'Java', to_date('01 Sep 2021', 'DD Mon YYYY'), to_date('01 Mar 2022', 'DD Mon YYYY')),
 (3, 'C#', to_date('01 Oct 2021', 'DD Mon YYYY'), to_date('01 May 2022', 'DD Mon YYYY'));
 SELECT * FROM course;
+
+
 DROP TABLE IF EXISTS lesson;
 CREATE TABLE lesson
 (
 id serial PRIMARY KEY,
-name varchar(100) NOT NULL,
+lesson_name varchar(100) NOT NULL,
 date_start timestamp NOT NULL,
 date_finish timestamp NOT NULL
 );
@@ -68,11 +72,13 @@ INSERT INTO lesson VALUES(1, 'Python', to_timestamp('2021 09 21 19:00:00', 'yyyy
 (2, 'Java', to_timestamp('2021 10 21 19:00:00', 'yyyymmdd hh24:mi:ss'), to_timestamp('2021 10 21 21:00:00', 'yyyymmdd hh24:mi:ss')),
 (3, 'C#', to_timestamp('2021 09 21 19:00:00', 'yyyymmdd hh24:mi:ss'), to_timestamp('2021 09 21 21:00:00', 'yyyymmdd hh24:mi:ss'));
 SELECT * FROM lesson;
+
+
 DROP TABLE IF EXISTS home_work;
 CREATE TABLE home_work
 (
 id serial PRIMARY KEY,
-name varchar(100) NOT NULL,
+homework_name varchar(100) NOT NULL,
 description varchar(500) NOT NULL,
 date_start timestamp NOT NULL,
 date_finish timestamp NOT NULL
