@@ -33,32 +33,30 @@ class Plane:
         self.brand = brand
         self.model = model
     def __str__(self):
-        print(self.brand, self.model)
+        return self.brand + self.model
 
 class Destroyer(Plane, SwimMixin):
-    def __init__(self, can_fire = True):
-        super().__init__()
-        self.can_fire = can_fire
+    def __init__(self, brand, model):
+        super(Destroyer, self).__init__(brand, model)
+        self.can_fire = True              
     def fire():
-        pass
+        print('Огонь')
     def swim(self):
-        super().swim()
         print('Destroyer swim')
 class Stelth(Plane, SwimMixin):
-    def __init__(self, is_visible = False):
-        super().__init__()
-        self.is_visible = is_visible
+    def __init__(self, brand, model):
+        super(Stelth, self).__init__(brand, model)
+        self.is_visible = False
     def hide():
-        pass
+        print('Прятаться')
 class Kukuruznik(Plane, SwimMixin):
-    def __init__(self, can_fertilize = True):
-        super().__init__()
-        self.can_fertilize = can_fertilize
+    def __init__(self, brand, model):
+        super(Kukuruznik, self).__init__(brand, model)
+        self.can_fertilize = True
     def fertilize():
-        pass
-class SwimMixin:
-    def swim():
-        pass
+        print("Растылять удобрения.")
+
 
 destr = Destroyer('Opel', '226')
-destr.__str__
+print(str(destr))
+destr.fire
