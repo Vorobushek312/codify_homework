@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test form</title>
+</head>
+<body>
+    <h1>Send message to Bonya!</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit"/>
+    </form>
+</body>
+</html>

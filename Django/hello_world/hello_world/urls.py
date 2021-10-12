@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from my_app.views import index
+from my_app.views import index, current_time, math_operation, my_python_tutorial, my_python_tutorial_logo, type_h, css_style_wiev
+from test_form.views import form_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index)
+    path('', index),
+    path('html-css-1-1/', current_time, name='html-css-1-1'),
+    path('html-css-1-2/', math_operation, name='html-css-1-2'),
+    path('test-form/', form_url),
+    path('html-css-2-1/', my_python_tutorial, name='html-css-2-1'),
+    path('html-css-2-2/', my_python_tutorial_logo, name='html-css-2-2'),
+    path('html-css-2-3/', type_h, name='html-css-2-3'),
+    path('html-css-2-4/', css_style_wiev, name='html-css-2-4')
+
 ]
