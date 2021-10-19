@@ -27,3 +27,6 @@ def type_h(request):
     
 def css_style_wiev(request):
     return render(request, 'html-css-2-4.html')
+
+def css_colorlib_contact_form(request):
+    return render(request, 'colorlib-contact-form.html')
