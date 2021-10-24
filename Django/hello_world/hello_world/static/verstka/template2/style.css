@@ -1,0 +1,48 @@
+html {
+background: #e7e7e7;
+}
+body {
+width: 650px;
+margin: 0 auto;
+}
+p input {
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 1px solid black;
+background: #e7e7e7;
+}
+p {
+text-align: center;
+}
+input {
+width: 450px;
+padding: 10px 0px;
+}
+.button {
+background-color: #e7e7e7;
+border: 2px solid black;
+color: black;
+padding: 20px 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+border-radius: 50%;
+text-transform: uppercase;
+letter-spacing: -1px;
+}
+a {
+text-transform: uppercase;
+}
+.description {
+padding-bottom: 45px;
+}
+.comment {
+padding-bottom: 30px;
+}
+.link {
+padding-bottom: 15px;
+}
+

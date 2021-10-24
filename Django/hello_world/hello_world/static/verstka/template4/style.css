@@ -1,0 +1,63 @@
+html {
+    background-color: #769aa4;
+}
+body {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+    color: #fbfcfc;
+    width: 350px;
+    margin: auto;
+    
+}
+body h1 {
+    padding-top: 25px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    padding-bottom: 10px;
+}
+body p {
+    padding-top: 5px; 
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+.border {
+    border-bottom: 1px solid white;
+    padding-top: 5px;
+}
+.border-right {
+    border-right: 1px solid white;
+    padding-left: 10px;
+}
+p input {
+    border: none;
+    background: #769aa4;
+    margin-left: 10px;
+    color: #fbfcfc;
+    padding: 5px;
+}
+.name {
+    width: 235px;
+}
+.email {
+    width: 270px;
+}
+.phone {
+    width: 265px;
+}
+select {
+    margin-left: 5px;
+    width: 268px;
+}
+.massanger {
+    width: 188px;
+}
+button {
+    letter-spacing: 3px;
+    font-family: Tahoma, sans-serif;
+    font-weight: none;
+    background: #769aa4;
+    border: none;
+    text-transform: uppercase;
+    color: #fbfcfc;
+}
+

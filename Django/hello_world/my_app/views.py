@@ -51,3 +51,15 @@ def cat_blog(request):
     form = AboutForm()
     about_data = About.objects.all()
     return render(request, 'project_1_index.html', {"form" : form, "data": about_data})
+
+def template1(request):
+    return render(request, 'colorlib.html')
+
+def template2(request):
+    return render(request, 'get_in_touch.html')
+
+def template3(request):
+    return render(request, 'template3.html')
+
+def template4(request):
+    return render(request, 'contact-form.html')

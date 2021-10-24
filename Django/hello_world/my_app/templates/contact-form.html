@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'verstka/template4/style.css' %}">
+    </head>
+    <body>
+        <form>
+        <h1>CONTACT FORM</h1>
+        <p class="border"></p>
+        <p>YOUR NAME*<span class="border-right"></span><input class="name" type="text"></p>
+        <p class="border"></p>
+        <p>EMAIL*<span class="border-right"></span><input class="email" type="text"></p>
+        <p class="border"></p>
+        <p>GENDER*<span class="border-right"></span>
+            <select size=none>
+                <option value="none" hidden=""></option>
+            <option value="1">Мужской</option>
+            <option value="2">Женский</option>
+            </select>
+        </p>
+        <p class="border">
+        <p>PHONE*<span class="border-right"></span><input class="phone" type="text"></p>
+        <p class="border"></p>
+        <p>YOUR MASSANGER*<span class="border-right"></span> <input class="massanger" type="text"></p>
+        <p class="border"></p>
+        <p><button>Sent<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTieLIxXRj9Wm1bxVmMZ1-M2GPgGARQVxrmxVMugP8VsQ8xKt7vM1r-JLm-8-vkLEtZsw&usqp=CAU" width="20" height="20"></button></p>
+        </form>
+    </body>
+</html>

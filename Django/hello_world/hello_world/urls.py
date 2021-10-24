@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from my_app.views import index, current_time, math_operation, my_python_tutorial, my_python_tutorial_logo, type_h, css_style_wiev, css_colorlib_contact_form, cat_blog
+from my_app.views import index, current_time, math_operation, my_python_tutorial, my_python_tutorial_logo, type_h, css_style_wiev, css_colorlib_contact_form, cat_blog, template1, template2, template3, template4
 from test_form.views import form_url
 from calculator.views import get_calculator
 
@@ -31,6 +31,10 @@ urlpatterns = [
     path('html-css-2-3/', type_h, name='html-css-2-3'),
     path('html-css-2-4/', css_style_wiev, name='html-css-2-4'),
     path('colorlib-contact-form/', css_colorlib_contact_form, name='colorlib-contact-form'),
-    path('cat_blog/', cat_blog, name='cat-blog')
+    path('cat_blog/', cat_blog, name='cat-blog'),
+    path('template1/', template1, name='template1'),
+    path('template2/', template2, name='template2'),
+    path('template3/', template3, name='template3'),
+    path('template4/', template4, name='template4')
 
 ]

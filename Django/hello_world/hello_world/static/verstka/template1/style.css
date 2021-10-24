@@ -1,0 +1,51 @@
+html {
+margin-top: 35px;
+background: #00b43f
+}
+body {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+padding-top: 5px;
+padding-left: 15px;
+width: 260px;
+margin: 0 auto;
+background: #f9f9f9;
+}
+body h1 {
+color: #737373;
+font-weight: 100;
+padding-bottom: 5px;
+font-size: 18px;
+}
+body h6 {
+color: #737373;
+font-weight: 100;
+font-size: 7px;
+margin-top: 5px;
+margin-bottom: 0px;
+padding-bottom: 5px;
+}
+body input {
+margin-top: 10px;
+width: 230px;
+border: 1px solid #e1e1e1;
+font-size: 8px;
+text-align: left;
+padding: 7px;
+}
+body textarea {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+width: 230px;
+margin-top: 10px;
+border: 1px solid #e1e1e1;
+font-size: 8px;
+padding: 7px;
+}
+p button{
+width: 245px;
+margin-bottom: 25px;
+background: #00b43f;
+border: 0;
+color: #ffffff;
+height: 20px;
+font-size: 12px;
+}
