@@ -1,0 +1,51 @@
+ul.nav{
+margin-left: 0px;
+padding-left: 0px;
+list-style: none;
+backgroud: 
+}
+.nav li { 
+display: inline; 
+}
+ul.nav a {
+display: inline-block;
+width: 100px;;
+padding:5px;
+background-color: #f4f4f4;
+border: 1px solid #333;
+text-decoration: none;
+color: #333;
+text-align: center;
+}
+ul.nav a:hover{
+background-color: #333;
+color: #f4f4f4;
+}
+.project_1_catblog {
+width: 300px;
+margin: 0 auto;
+text-align: center;
+}
+.photo_cat {
+text-align: center;
+}
+.about_form {
+width: 200px;
+margin: 0 auto;
+}
+p input {
+width: 190px;	
+padding: 5px 10px;
+}
+.p_form {
+margin-bottom:0;
+}
+.allow_mailing {
+margin-top:0; 
+padding: 0;
+}
+.submit {
+background: #056ffd;
+padding: 5px;
+width: 215px;
+}
