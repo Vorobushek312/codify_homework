@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="form_create">
+	{% csrf_token %}
+	<h1 class="title">Create article</h1>
+	<p><label class="title_label_create" for="title">Title</label><br>
+	<input class="title_input_create" type="text" name="title" id="title" placeholder="Enter title""><br>
+	<label class="short_discription_label_create" for="short_description">Short description</label><br>
+	<textarea class="short_discription_input_create" name="short_description" id="short_description" placeholder="Enter description"></textarea><br>
+	<label class="discription_label_create" for="description">Discription</label><br>
+	<textarea class="discription_input_create" name="description" id="decription" placeholder="Enter description"></textarea><br>
+	<label class="upload_image_label_create" for="upload_image">Upload image</label><br>
+	<input class="upload_image_input_create" type="file" name="upload_image" id="upload_image"><br>
+	<p class="submit_create"><input type="submit" name="allow_mailing"></p>
+</form>
+{% if errors %}
+{% for k, p in errors.items %}
+<dev class="errors_create">
+	<h3>{{ k }}</h3>
+	<p>{{ p }}</p>
+</dev>
+{% endfor %}
+{% endif %}
+{% endblock %}

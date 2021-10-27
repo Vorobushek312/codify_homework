@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h1 class="project_1_catblog">Cat Blog!</h1>
+<h1 class="title">Cat Blog!</h1>
 <p class="photo_cat"><img  src="{% static 'images/photo_cat.jpg' %}" alt="cat"></p>
 <p>Admiration we surrounded possession frequently he. Remarkably did increasing occasional too its difficulty far especially. Known tiled but sorry joy balls. Bed sudden manner indeed fat now feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up distrusts explained. </p>
 <p>Up is opinion message manners correct hearing husband my. Disposing commanded dashwoods cordially depending at at. Its strangers who you certainty earnestly resources suffering she. Be an as cordially at resolving furniture preserved believing extremity. Easy mr pain felt in. Too northward affection additions nay. He no an nature ye talent houses wisdom vanity denied. </p>
 <p>He do subjects prepared bachelor juvenile ye oh. He feelings removing informed he as ignorant we prepared. Evening do forming observe spirits is in. Country hearted be of justice sending. On so they as with room cold ye. Be call four my went mean. Celebrated if remarkably especially an. Going eat set she books found met aware. </p>
-<h2 class="project_1_catblog">Send your message to Bonya!</h2>    
+<h2 class="title">Send your message to Bonya!</h2>    
 <form method="POST" class="about_form">
     {% csrf_token %}
 	<p class="p_form">Email<br>
@@ -18,7 +18,7 @@
 	Message<br>
 	<input type="text" name="message"></p>
 	<input class="allow_mailing" type="checkbox" name="allow_mailing"> Allow mailing<br>
-	<input class="submit" type="submit" name="allow_mailing">
+	<input class="submit" type="submit">
 </form>
 {% endblock %}
 <!-- <hr>
