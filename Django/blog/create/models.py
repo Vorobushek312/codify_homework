@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 def article_directory_path(instance, filename):
-    return 'blog/static/images/article/{0}/{1}'.format(datetime.today().strftime('%Y-%m-%d'), filename)
+    return 'article/{0}/{1}'.format(datetime.today().strftime('%Y-%m-%d'), filename)
 # Create your models here.
 
 class Create(models.Model):

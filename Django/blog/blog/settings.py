@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'article',
     'create',
     'about',
     'django.contrib.admin',
@@ -122,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = BASE_DIR / "blog/static/media/"
+MEDIA_URL = '/media/'
 
 import os
 STATICFILES_DIRS = [

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% if articles %}
+{% for article in articles %}
+<p>{{ article.title }} {{ article.create_date }}</p>
+<p><img src ="{{ article.upload_image.url }}"></p>
+<p>{{ article.short_description }}</p>
+<hr>
+{% endfor %}
+{% endif %}
+{% endblock %}
